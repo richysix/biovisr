@@ -1,11 +1,11 @@
 Package: biovisr
 Type: Package
-Title: Biological Visualisation Functions.
+Title: Biological Visualisation Functions
 Version: 0.0.0.9000
-Author: person("Richard", "White", email = "richard.white@sanger.ac.uk",
-                role = c("aut", "cre"))
-Description: This is a collection of functions that I use for visualistions of
-            different types of biological data.
+Authors@R: person("Richard", "White", email = "richard.white@sanger.ac.uk",
+                  role = c("aut", "cre"))
+Description: This is a collection of functions that I use for visualisations of
+  different types of biological data.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
