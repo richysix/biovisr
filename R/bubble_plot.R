@@ -2,9 +2,9 @@
 #'
 #' \code{bubble_plot} produces a ggplot bubble plot from a data.frame
 #'
-#' This function takes a data.frame and creates a bubble plot. An x-y
-#' scatterplot where an attribute is represented by the size of the points and
-#' optionally an another attribute is mapped to the colour.
+#' This function takes a data.frame and creates a bubble plot.
+#' An x-y scatterplot where an attribute is represented by the size of the
+#' points and optionally an another attribute is mapped to the colour.
 #'
 #' @param plot_df   data.frame  data to plot
 #' @param x         character   Name of the variable to plot on the x-axis
