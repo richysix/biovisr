@@ -62,14 +62,14 @@ bubble_plot <- function(plot_df, x = 'x', y = 'y', size = 'size',
   if (x_is_categorical | y_is_categorical) {
     bubble_theme <- ggplot2::theme_void() +
       ggplot2::theme(
-        axis.text.x = ggplot2::element_text(size = 10, colour = 'black', angle = 90,
+        axis.text.x = ggplot2::element_text(size = 12, colour = 'black', angle = 90,
                                             hjust = 0, debug = FALSE),
-        axis.text.y = ggplot2::element_text(size = 10, colour = 'black', angle = 0,
+        axis.text.y = ggplot2::element_text(size = 12, colour = 'black', angle = 0,
                                             hjust = 0, debug = FALSE),
         panel.grid.major = ggplot2::element_line(colour = 'grey80', linetype = 'dotted'),
         legend.position = 'top',
-        legend.title = ggplot2::element_text(size = 9),
-        legend.text = ggplot2::element_text(size = 7)
+        legend.title = ggplot2::element_text(size = 14),
+        legend.text = ggplot2::element_text(size = 12)
       )
   } else {
     bubble_theme <- ggplot2::theme_minimal()
