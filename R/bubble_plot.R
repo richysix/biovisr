@@ -38,7 +38,8 @@
 #' @export
 bubble_plot <- function(plot_df, x = 'x', y = 'y', size = 'size',
                         fill = 'fill', x_labels = NULL,
-                        y_labels = NULL ){
+                        y_labels = NULL, ... ){
+
   # check labels is the same length as the levels of the x/y column
   if (!is.null(x_labels)) {
     if (length(x_labels) != nlevels(plot_df[[x]])) {
@@ -77,7 +78,7 @@ bubble_plot <- function(plot_df, x = 'x', y = 'y', size = 'size',
 
   bubble_plot <- ggplot2::ggplot(data = plot_df) +
     ggplot2::geom_point(ggplot2::aes_(x = as.name(x), y = as.name(y), size = as.name(size),
-                    fill = as.name(fill)), shape = 21) +
+                    fill = as.name(fill)), shape = 21, ... ) +
     viridis::scale_fill_viridis(direction = -1) +
     bubble_theme
 
