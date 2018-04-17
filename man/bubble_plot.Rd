@@ -5,7 +5,7 @@
 \title{Create 'bubble' plot}
 \usage{
 bubble_plot(plot_df, x = "x", y = "y", size = "size", fill = "fill",
-  x_labels = NULL, y_labels = NULL)
+  x_labels = NULL, y_labels = NULL, ...)
 }
 \arguments{
 \item{plot_df}{data.frame  data to plot}
@@ -32,9 +32,9 @@ plot - ggplot2 object
 \code{bubble_plot} produces a ggplot bubble plot from a data.frame
 }
 \details{
-This function takes a data.frame and creates a bubble plot. An x-y
-scatterplot where an attribute is represented by the size of the points and
-optionally an another attribute is mapped to the colour.
+This function takes a data.frame and creates a bubble plot.
+An x-y scatterplot where an attribute is represented by the size of the
+points and optionally an another attribute is mapped to the colour.
 }
 \examples{
 
