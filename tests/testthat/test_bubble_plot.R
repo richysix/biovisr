@@ -1,3 +1,4 @@
+context('bubble plot')
 library(biovisr)
 
 set.seed(20229)
@@ -19,10 +20,15 @@ num_bubble_plot <- bubble_plot(test_data_num)
 test_data_cat$y <- factor(test_data_cat$y, levels = 10:1)
 cat_bubble_plot_rev <- bubble_plot(test_data_cat)
 
-test_that('categorical plot looks ok', {
+test_that('categorical plot', {
   expect_equal_to_reference(cat_bubble_plot, 'cat_bubble_plot.rda')
-  expect_equal_to_reference(cat_bubble_plot, 'num_bubble_plot.rda')
-  expect_equal_to_reference(cat_bubble_plot_rev, 'cat_bubble_plot_rev.rda')
 })
 
+test_that('continuous plot', {
+  expect_equal_to_reference(num_bubble_plot, 'num_bubble_plot.rda')
+})
+
+test_that('categorical plot, y reversed', {
+  expect_equal_to_reference(cat_bubble_plot_rev, 'cat_bubble_plot_rev.rda')
+})
 
