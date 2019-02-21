@@ -35,6 +35,7 @@ theme_bubble <- function(base_size = 11, base_family = "", categorical = TRUE) {
                                 size = base_size, hjust = 0, vjust = 0, angle = 0,
                                 lineheight = 0.9, debug = FALSE),
         axis.text.x = ggplot2::element_text(angle = 90),
+        axis.text.x = ggplot2::element_text(vjust = 0.5),
         panel.grid.major = ggplot2::element_line(colour = 'grey80', linetype = 'dotted'),
         legend.position = 'top',
         legend.title = ggplot2::element_text(size = base_size + 2),
