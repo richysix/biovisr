@@ -13,7 +13,8 @@
 #' @param fill_palette character - a named character vectors of colours for the fill aesthetic
 #' @param shape_var character - name of the column to use as the shape aesthetic
 #' @param shape_palette character - a named character vectors of colours for the shape aesthetic
-#' @param samples_names logical - whether text labels should be added to label the points
+#' @param point_labels character - labels for the points. Either a column name
+#' from the plot_data or a character vector. Default: NULL - no labels
 #'
 #' @return ggplot2 object
 #'
@@ -26,7 +27,7 @@
 scatterplot_with_fill_and_shape <- function(plot_data, x_var, y_var,
                                         fill_var, fill_palette,
                                         shape_var = 'None', shape_palette,
-                                        sample_names = TRUE,
+                                        point_labels = NULL,
                                         point_size = 4, ...) {
   plot <- ggplot2::ggplot(data = plot_data,
                           ggplot2::aes_(x = as.name(x_var), y = as.name(y_var)))
@@ -66,13 +67,37 @@ scatterplot_with_fill_and_shape <- function(plot_data, x_var, y_var,
   }
 
   # add text labels
-  if (sample_names) {
-    plot <- plot +
-      ggplot2::geom_text(
-        ggplot2::aes_string(label = 'sample_name'),
-        hjust = 0, vjust = 0,
-        nudge_x = 0.5, nudge_y = 0.5,
-        size=4, show.legend=FALSE)
+  if (!is.null(point_labels)) {
+    # check whether sample_names is a column name in the data or a vector of labels
+    if (length(point_labels) == 1) {
+      if (point_labels %in% colnames(plot_data)) {
+        plot <- plot +
+          ggplot2::geom_text(
+            ggplot2::aes_(label = as.name(point_labels)),
+            hjust = 0, vjust = 0,
+            nudge_x = 0.5, nudge_y = 0.5,
+            size=4, show.legend=FALSE)
+      } else {
+        stop(paste0('The supplied column for point_labels (', point_labels,
+                   ') does not exist in the plot data.\n'))
+      }
+    } else {
+      # check whether point_labels is a vector of the same length as plot data
+      if (length(point_labels) == nrow(plot_data)) {
+        plot_data <- cbind(plot_data,
+                           'point_labels' = point_labels)
+        plot <- plot +
+          ggplot2::geom_text(
+            ggplot2::aes_string(label = 'point_labels'),
+            hjust = 0, vjust = 0,
+            nudge_x = 0.5, nudge_y = 0.5,
+            size=4, show.legend=FALSE)
+      } else {
+        stop(paste('Length of point_labels does not match the data.\n',
+             'Either specify a column name or a vector the same length as the plot data\n'))
+      }
+    }
+
   }
   # change theme
   plot <- plot + ggplot2::theme_minimal()
