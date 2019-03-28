@@ -8,8 +8,8 @@ test_data_cat <- data.frame(x = factor(rep(LETTERS[1:10], 10)),
                             size = sample(20:100, 100, replace = TRUE),
                             fill = runif(100))
 
-test_data_num <- data.frame(x = sample(1:50, 20),
-                            y = sample(1:50, 20),
+test_data_num <- data.frame(x = runif(100, min = 1, max = 50),
+                            y = runif(100, min = 1, max = 50),
                             size = sample(20:100, 100, replace = TRUE),
                             fill = runif(100))
 
