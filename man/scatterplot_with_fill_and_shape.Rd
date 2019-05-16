@@ -5,7 +5,7 @@
 \title{Plot 2 columns against each other with Fill and Shapes}
 \usage{
 scatterplot_with_fill_and_shape(plot_data, x_var, y_var, fill_var,
-  fill_palette, shape_var = "None", shape_palette, sample_names = TRUE,
+  fill_palette, shape_var = "None", shape_palette, point_labels = NULL,
   point_size = 4, ...)
 }
 \arguments{
@@ -23,7 +23,8 @@ scatterplot_with_fill_and_shape(plot_data, x_var, y_var, fill_var,
 
 \item{shape_palette}{character - a named character vectors of colours for the shape aesthetic}
 
-\item{samples_names}{logical - whether text labels should be added to label the points}
+\item{point_labels}{character - labels for the points. Either a column name
+from the plot_data or a character vector. Default: NULL - no labels}
 }
 \value{
 ggplot2 object
