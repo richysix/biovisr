@@ -26,9 +26,9 @@
 #' cat_bubble_plot + theme_bubble() + theme(axis.text.x = element_text(angle = 0, face = 'italic'))
 #'
 #' @export
-theme_bubble <- function(base_size = 11, base_family = "", categorical = TRUE) {
+theme_bubble <- function(base_size = 11, base_family = "", categorical = TRUE, ...) {
   if (categorical) {
-    ggplot2::theme_void(base_size = base_size, base_family = base_family) +
+    ggplot2::theme_void(base_size = base_size, base_family = base_family, ...) +
       ggplot2::theme(
         axis.text =
           ggplot2::element_text(family = "", face = "plain", colour = 'black',
@@ -38,8 +38,8 @@ theme_bubble <- function(base_size = 11, base_family = "", categorical = TRUE) {
         axis.text.y = ggplot2::element_text(vjust = 0.5),
         panel.grid.major = ggplot2::element_line(colour = 'grey80', linetype = 'dotted'),
         legend.position = 'top', legend.box = "vertical", legend.box.just = "left",
-        legend.title = ggplot2::element_text(size = base_size + 2),
-        legend.text = ggplot2::element_text(size = base_size)
+        legend.title = ggplot2::element_text(size = base_size),
+        legend.text = ggplot2::element_text(size = base_size - 2)
       )
   } else {
     ggplot2::theme_minimal()
