@@ -28,8 +28,8 @@ test_PCA_plot_no_labels <-
 
 
 test_that('PCA plot', {
-  expect_equal_to_reference(test_PCA_plot, 'test_pca_plot.rda')
-  expect_equal_to_reference(test_PCA_plot_no_labels, 'test_pca_plot_no_labels.rda')
+  expect_known_value(test_PCA_plot, 'test_pca_plot.rda')
+  expect_known_value(test_PCA_plot_no_labels, 'test_pca_plot_no_labels.rda')
   expect_error(  scatterplot_with_fill_and_shape(test_data, x_var = 'PC1', y_var = 'PC2',
                                                  fill_var = 'stage', fill_palette = c('orange', 'steelblue3', 'hotpink2', 'black'),
                                                  shape_var = 'condition', shape_palette = c('baseline' = 21, 'wt' = 22, 'hom' = 23),
@@ -45,7 +45,7 @@ test_that('PCA plot', {
   'Length of point_labels does not match the data'
   )
   different_labels <- paste0('alt_name_', 1:20)
-  expect_equal_to_reference(scatterplot_with_fill_and_shape(test_data, x_var = 'PC1', y_var = 'PC2',
+  expect_known_value(scatterplot_with_fill_and_shape(test_data, x_var = 'PC1', y_var = 'PC2',
                                                             fill_var = 'stage', fill_palette = c('orange', 'steelblue3', 'hotpink2', 'black'),
                                                             shape_var = 'condition', shape_palette = c('baseline' = 21, 'wt' = 22, 'hom' = 23),
                                                             point_labels = different_labels),
