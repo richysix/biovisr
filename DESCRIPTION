@@ -12,4 +12,4 @@ LazyData: true
 Suggests: testthat
 Imports:
     ggplot2 (>= 2.2.1)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2

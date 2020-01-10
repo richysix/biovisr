@@ -4,9 +4,18 @@
 \alias{scatterplot_with_fill_and_shape}
 \title{Plot 2 columns against each other with Fill and Shapes}
 \usage{
-scatterplot_with_fill_and_shape(plot_data, x_var, y_var, fill_var,
-  fill_palette, shape_var = "None", shape_palette, point_labels = NULL,
-  point_size = 4, ...)
+scatterplot_with_fill_and_shape(
+  plot_data,
+  x_var,
+  y_var,
+  fill_var,
+  fill_palette,
+  shape_var = "None",
+  shape_palette,
+  point_labels = NULL,
+  point_size = 4,
+  ...
+)
 }
 \arguments{
 \item{plot_data}{data.frame - plot data}

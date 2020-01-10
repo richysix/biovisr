@@ -4,7 +4,7 @@
 \alias{theme_bubble}
 \title{A ggplot theme for bubble plots}
 \usage{
-theme_bubble(base_size = 11, base_family = "", categorical = TRUE)
+theme_bubble(base_size = 11, base_family = "", categorical = TRUE, ...)
 }
 \arguments{
 \item{base_size}{numeric    base size of text in points (default: 11)}

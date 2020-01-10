@@ -4,8 +4,16 @@
 \alias{bubble_plot}
 \title{Create 'bubble' plot}
 \usage{
-bubble_plot(plot_df, x = "x", y = "y", size = "size",
-  fill = "fill", x_labels = NULL, y_labels = NULL, ...)
+bubble_plot(
+  plot_df,
+  x = "x",
+  y = "y",
+  size = "size",
+  fill = "fill",
+  x_labels = NULL,
+  y_labels = NULL,
+  ...
+)
 }
 \arguments{
 \item{plot_df}{data.frame  data to plot}
