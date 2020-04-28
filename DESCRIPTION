@@ -11,5 +11,8 @@ Encoding: UTF-8
 LazyData: true
 Suggests: testthat
 Imports:
-    ggplot2 (>= 2.2.1)
+    ggplot2 (>= 2.2.1),
+    tibble,
+    tidyr,
+    rlang
 RoxygenNote: 7.0.2

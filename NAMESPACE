@@ -2,6 +2,9 @@
 
 export(bubble_plot)
 export(cbf_palette)
+export(df_heatmap)
 export(get_gg_legend)
+export(matrix_heatmap)
 export(scatterplot_with_fill_and_shape)
 export(theme_bubble)
+export(theme_heatmap)
