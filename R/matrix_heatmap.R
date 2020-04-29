@@ -40,16 +40,56 @@
 #'
 #' @export
 df_heatmap <- function(plot_df, x, y, fill, fill_palette = "plasma",
+                       colour = NULL, size = NULL,
                        xaxis_labels = TRUE, yaxis_labels = TRUE, ...) {
   xvar <- rlang::sym(x)
   yvar <- rlang::sym(y)
   fillvar <- rlang::sym(fill)
 
-  heatmap_plot <- ggplot2::ggplot(data = plot_df) +
-    ggplot2::geom_raster( ggplot2::aes(x = !!xvar, y = !!yvar, fill = !!fillvar ) )
+  if (is.null(colour)) {
+    if (is.null(size)){
+      heatmap_plot <- ggplot2::ggplot(data = plot_df) +
+        ggplot2::geom_raster( ggplot2::aes(x = !!xvar, y = !!yvar, fill = !!fillvar ) )
+    } else {
+      heatmap_plot <- ggplot2::ggplot(data = plot_df) +
+        ggplot2::geom_tile( ggplot2::aes(x = !!xvar, y = !!yvar, fill = !!fillvar ),
+                            size = size )
+    }
+  } else {
+    if (is.null(size)){
+      heatmap_plot <- ggplot2::ggplot(data = plot_df) +
+        ggplot2::geom_tile( ggplot2::aes(x = !!xvar, y = !!yvar, fill = !!fillvar ),
+                            colour = colour )
+    } else {
+      heatmap_plot <- ggplot2::ggplot(data = plot_df) +
+        ggplot2::geom_tile( ggplot2::aes(x = !!xvar, y = !!yvar, fill = !!fillvar ),
+                            colour = colour, size = size )
+    }
+  }
 
-  if (fill_palette %in% c('viridis', 'plasma', 'magma', 'inferno', 'cividis')) {
-    heatmap_plot <- heatmap_plot + ggplot2::scale_fill_viridis_c(option = fill_palette)
+  # sort out fill
+  fill_is_categorical <- class(plot_df[[fill]]) %in% c('character', 'factor', 'logical')
+
+  if (fill_is_categorical) {
+    if (is.null(fill_palette)) {
+      heatmap_plot + ggplot2::scale_fill_manual(values = cbf_palette(nlevels(plot_df[[fill]])))
+    } else if (length(fill_palette) == 1) {
+      if (fill_palette %in% c('viridis', 'plasma', 'magma', 'inferno', 'cividis')) {
+        heatmap_plot <- heatmap_plot + ggplot2::scale_fill_viridis_d(option = fill_palette)
+      } else {
+        heatmap_plot <- heatmap_plot + ggplot2::scale_fill_brewer(palette = fill_palette)
+      }
+    } else if (length(fill_palette) == nlevels(plot_df[[fill]])) {
+      heatmap_plot <- heatmap_plot + ggplot2::scale_fill_manual(values = fill_palette)
+    }
+  } else {
+    if (length(fill_palette) == 1) {
+      if (fill_palette %in% c('viridis', 'plasma', 'magma', 'inferno', 'cividis')) {
+        heatmap_plot <- heatmap_plot + ggplot2::scale_fill_viridis_c(option = fill_palette)
+      } else {
+        heatmap_plot <- heatmap_plot + ggplot2::scale_fill_distiller(palette = fill_palette)
+      }
+    }
   }
 
   if (class(xaxis_labels) == "character" && length(xaxis_labels) == nlevels(plot_df[[x]])) {
