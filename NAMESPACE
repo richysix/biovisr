@@ -2,6 +2,7 @@
 
 export(bubble_plot)
 export(cbf_palette)
+export(dendro_plot)
 export(df_heatmap)
 export(get_gg_legend)
 export(matrix_heatmap)

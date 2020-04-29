@@ -19,7 +19,7 @@
 #' @param yaxis_labels  logical/character   default=TRUE, FALSE means labels are not printed
 #' if the value is a character vector of the same length as the levels of the y variable
 #' these values are used instead
-#' @param ...           Other arguments passed on to \code{\link{theme_heatmap()}}
+#' @param ...           Other arguments passed on to \code{\link{theme_heatmap}}
 #'
 #' @return plot - ggplot2 object
 #'

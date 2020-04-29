@@ -10,7 +10,7 @@
 #'
 #' @param xaxis_labels  logical   whether axis labels are printed, default=TRUE
 #' @param yaxis_labels  logical   whether axis labels are printed, default=TRUE
-#' @param ...           Other arguments passed on to \code{\link[ggplot2]{theme_void()}}
+#' @param ...           Other arguments passed on to \code{\link[ggplot2]{theme_void}}
 #'
 #' @return ggplot theme object
 #'

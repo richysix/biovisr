@@ -4,20 +4,14 @@
 \alias{theme_heatmap}
 \title{A ggplot theme for heatmap plots}
 \usage{
-theme_heatmap(
-  base_size = 11,
-  base_family = "",
-  base_line_size = base_size/22,
-  base_rect_size = base_size/22,
-  ...
-)
+theme_heatmap(xaxis_labels = TRUE, yaxis_labels = TRUE, ...)
 }
 \arguments{
-\item{base_size}{numeric    base size of text in points (default: 11)}
+\item{xaxis_labels}{logical   whether axis labels are printed, default=TRUE}
 
-\item{base_family}{character  base font family (default: "")}
+\item{yaxis_labels}{logical   whether axis labels are printed, default=TRUE}
 
-\item{categorical}{logical    are either of the x and y variable categorical (default: TRUE)}
+\item{...}{Other arguments passed on to \code{\link[ggplot2]{theme_void}}}
 }
 \value{
 ggplot theme object

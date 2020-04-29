@@ -10,6 +10,8 @@ df_heatmap(
   y,
   fill,
   fill_palette = "plasma",
+  colour = NULL,
+  size = NULL,
   xaxis_labels = TRUE,
   yaxis_labels = TRUE,
   ...
@@ -35,7 +37,7 @@ these values are used instead}
 if the value is a character vector of the same length as the levels of the y variable
 these values are used instead}
 
-\item{...}{Other arguments passed on to \code{\link{theme_heatmap()}}}
+\item{...}{Other arguments passed on to \code{\link{theme_heatmap}}}
 }
 \value{
 plot - ggplot2 object
