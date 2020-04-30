@@ -117,6 +117,8 @@ df_heatmap <- function(plot_df, x, y, fill, fill_palette = "plasma",
 #' respectively and the fill legend is labelled Value.
 #' By default x and y axis labels are printed.
 #'
+#' @importFrom magrittr "%>%"
+#'
 #' @param plot_matrix   matrix      data to plot
 #' @param x_title       character   Name for the x-axis
 #' @param y_title       character   Name for the y-axis
