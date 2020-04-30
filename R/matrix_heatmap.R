@@ -41,7 +41,8 @@
 #' @export
 df_heatmap <- function(plot_df, x, y, fill, fill_palette = "plasma",
                        colour = NULL, size = NULL,
-                       xaxis_labels = TRUE, yaxis_labels = TRUE, ...) {
+                       xaxis_labels = TRUE, yaxis_labels = TRUE,
+                       na.translate = TRUE, ...) {
   xvar <- rlang::sym(x)
   yvar <- rlang::sym(y)
   fillvar <- rlang::sym(fill)
@@ -72,15 +73,22 @@ df_heatmap <- function(plot_df, x, y, fill, fill_palette = "plasma",
 
   if (fill_is_categorical) {
     if (is.null(fill_palette)) {
-      heatmap_plot + ggplot2::scale_fill_manual(values = cbf_palette(nlevels(plot_df[[fill]])))
+      heatmap_plot + ggplot2::scale_fill_manual(values = biovisr::cbf_palette(nlevels(plot_df[[fill]])),
+                                                na.translate = na.translate)
     } else if (length(fill_palette) == 1) {
       if (fill_palette %in% c('viridis', 'plasma', 'magma', 'inferno', 'cividis')) {
-        heatmap_plot <- heatmap_plot + ggplot2::scale_fill_viridis_d(option = fill_palette)
+        heatmap_plot <- heatmap_plot +
+          ggplot2::scale_fill_viridis_d(option = fill_palette,
+                                        na.translate = na.translate)
       } else {
-        heatmap_plot <- heatmap_plot + ggplot2::scale_fill_brewer(palette = fill_palette)
+        heatmap_plot <- heatmap_plot +
+          ggplot2::scale_fill_brewer(palette = fill_palette,
+                                     na.translate = na.translate)
       }
     } else if (length(fill_palette) == nlevels(plot_df[[fill]])) {
-      heatmap_plot <- heatmap_plot + ggplot2::scale_fill_manual(values = fill_palette)
+      heatmap_plot <- heatmap_plot +
+        ggplot2::scale_fill_manual(values = fill_palette,
+                                   na.translate = na.translate)
     }
   } else {
     if (length(fill_palette) == 1) {
@@ -170,13 +178,19 @@ matrix_heatmap <- function(data_matrix, x_title = "Sample", y_title = "Gene",
     y_title <- names(dimnames(data_matrix))[1]
     x_title <- names(dimnames(data_matrix))[2]
   }
+  # make sure x_title and y_title are not the same
+  if (x_title == y_title) {
+    xcol_name <- paste0(x_title, '2')
+  } else {
+    xcol_name <- x_title
+  }
 
   # make matrix into long data frame and call df_heatmap
   matrix_df <- as.data.frame(data_matrix) %>%
     tibble::rownames_to_column(var = y_title) %>%
-    tidyr::pivot_longer(., -!!y_title, names_to = x_title, values_to = fill_title)
+    tidyr::pivot_longer(., -!!y_title, names_to = xcol_name, values_to = fill_title)
   # make x and y columns factors
-  matrix_df[[x_title]] <- factor(matrix_df[[x_title]],
+  matrix_df[[xcol_name]] <- factor(matrix_df[[xcol_name]],
                                  levels = colnames(data_matrix))
   # reverse levels of y col to make it look like the original matrix
   matrix_df[[y_title]] <- factor(matrix_df[[y_title]],
@@ -187,7 +201,10 @@ matrix_heatmap <- function(data_matrix, x_title = "Sample", y_title = "Gene",
   }
 
   # plot heatmap
-  df_heatmap(matrix_df, x = x_title, y = y_title, fill = fill_title,
-             fill_palette = fill_palette, xaxis_labels = xaxis_labels,
-             yaxis_labels = yaxis_labels, ...)
+  heatmap <- df_heatmap(matrix_df, x = xcol_name, y = y_title, fill = fill_title,
+                        fill_palette = fill_palette, xaxis_labels = xaxis_labels,
+                        yaxis_labels = yaxis_labels, ...)
+  heatmap <- heatmap + ggplot2::xlab(x_title)
+
+  return(heatmap)
 }
