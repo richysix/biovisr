@@ -28,8 +28,8 @@ test_PCA_plot_no_labels <-
 
 
 test_that('PCA plot', {
-  expect_known_value(test_PCA_plot, 'test_pca_plot.rda')
-  expect_known_value(test_PCA_plot_no_labels, 'test_pca_plot_no_labels.rda')
+  expect_known_value(test_PCA_plot, 'test_pca_plot.rds')
+  expect_known_value(test_PCA_plot_no_labels, 'test_pca_plot_no_labels.rds')
   expect_error(  scatterplot_with_fill_and_shape(test_data, x_var = 'PC1', y_var = 'PC2',
                                                  fill_var = 'stage', fill_palette = c('orange', 'steelblue3', 'hotpink2', 'black'),
                                                  shape_var = 'condition', shape_palette = c('baseline' = 21, 'wt' = 22, 'hom' = 23),
@@ -49,5 +49,5 @@ test_that('PCA plot', {
                                                             fill_var = 'stage', fill_palette = c('orange', 'steelblue3', 'hotpink2', 'black'),
                                                             shape_var = 'condition', shape_palette = c('baseline' = 21, 'wt' = 22, 'hom' = 23),
                                                             point_labels = different_labels),
-                            'test_pca_plot_diff_labels.rda')
+                            'test_pca_plot_diff_labels.rds')
 })

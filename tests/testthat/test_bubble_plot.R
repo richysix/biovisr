@@ -21,15 +21,15 @@ test_data_cat$y <- factor(test_data_cat$y, levels = 10:1)
 cat_bubble_plot_rev <- bubble_plot(test_data_cat)
 
 test_that('categorical plot', {
-  expect_known_value(cat_bubble_plot, 'cat_bubble_plot.rda')
+  expect_known_value(cat_bubble_plot, 'cat_bubble_plot.rds')
 })
 
 test_that('continuous plot', {
-  expect_known_value(num_bubble_plot, 'num_bubble_plot.rda')
+  expect_known_value(num_bubble_plot, 'num_bubble_plot.rds')
 })
 
 test_that('categorical plot, y reversed', {
   expect_known_value(cat_bubble_plot_rev,
-                      'cat_bubble_plot_rev.rda')
+                      'cat_bubble_plot_rev.rds')
 })
 
