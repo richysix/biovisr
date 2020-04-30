@@ -19,6 +19,7 @@
 #' @param yaxis_labels  logical/character   default=TRUE, FALSE means labels are not printed
 #' if the value is a character vector of the same length as the levels of the y variable
 #' these values are used instead
+#' @param na.translate  logical  whether to include NA values in the legend for categorical fill variables
 #' @param ...           Other arguments passed on to \code{\link{theme_heatmap}}
 #'
 #' @return plot - ggplot2 object

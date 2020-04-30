@@ -14,6 +14,7 @@ df_heatmap(
   size = NULL,
   xaxis_labels = TRUE,
   yaxis_labels = TRUE,
+  na.translate = TRUE,
   ...
 )
 }
@@ -36,6 +37,8 @@ these values are used instead}
 \item{yaxis_labels}{logical/character   default=TRUE, FALSE means labels are not printed
 if the value is a character vector of the same length as the levels of the y variable
 these values are used instead}
+
+\item{na.translate}{logical  whether to include NA values in the legend for categorical fill variables}
 
 \item{...}{Other arguments passed on to \code{\link{theme_heatmap}}}
 }

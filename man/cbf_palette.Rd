@@ -4,10 +4,12 @@
 \alias{cbf_palette}
 \title{A colour-blind friendly colour palette}
 \usage{
-cbf_palette(palette_size = 8)
+cbf_palette(palette_size = 8, named = FALSE)
 }
 \arguments{
 \item{palette_size}{numeric    number of colours required}
+
+\item{named}{logical    should the vector be named. default = FALSE}
 }
 \value{
 named vector of colours
