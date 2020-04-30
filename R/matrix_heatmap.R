@@ -74,8 +74,9 @@ df_heatmap <- function(plot_df, x, y, fill, fill_palette = "plasma",
 
   if (fill_is_categorical) {
     if (is.null(fill_palette)) {
-      heatmap_plot + ggplot2::scale_fill_manual(values = biovisr::cbf_palette(nlevels(plot_df[[fill]])),
-                                                na.translate = na.translate)
+      heatmap_plot <- heatmap_plot +
+        ggplot2::scale_fill_manual(values = biovisr::cbf_palette(nlevels(plot_df[[fill]])),
+                                   na.translate = na.translate)
     } else if (length(fill_palette) == 1) {
       if (fill_palette %in% c('viridis', 'plasma', 'magma', 'inferno', 'cividis')) {
         heatmap_plot <- heatmap_plot +
