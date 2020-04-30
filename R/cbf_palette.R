@@ -8,6 +8,7 @@
 #' This palette is intended for categorical data.
 #'
 #' @param palette_size   numeric    number of colours required
+#' @param named          logical    should the vector be named. default = FALSE
 #'
 #' @return named vector of colours
 #'
@@ -17,7 +18,7 @@
 #' palette <- cbf_palette(4)
 #'
 #' @export
-cbf_palette <- function(palette_size = 8) {
+cbf_palette <- function(palette_size = 8, named = FALSE) {
   colour_blind_palette <- c(
     'blue' = rgb(0,0.45,0.7),
     'vermillion' = rgb(0.8, 0.4, 0),
@@ -30,11 +31,17 @@ cbf_palette <- function(palette_size = 8) {
   )
   if (palette_size > 8) {
     warning("A palette longer than 8 was requested. 8 colours have been returned")
-    return(colour_blind_palette)
+    palette <- colour_blind_palette
   } else if (palette_size < 1) {
     warning("8 colours have been returned")
-    return(colour_blind_palette)
+    palette <- colour_blind_palette
   } else {
-    return(colour_blind_palette[seq_len(palette_size)])
+    palette <- colour_blind_palette[seq_len(palette_size)]
   }
+
+  if (!named) {
+    palette <- unname(palette)
+  }
+
+  return(palette)
 }
