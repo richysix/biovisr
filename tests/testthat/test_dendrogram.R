@@ -15,8 +15,11 @@ test_matrix <-
 
 cluster_res <- cluster(test_matrix, clustering = TRUE)
 
-tree_plot <- dendro_plot(cluster_res$clustering)
+tree_plot_cat <- dendro_plot(cluster_res$clustering)
+tree_plot <- dendro_plot(cluster_res$clustering,
+                         categorical_scale = FALSE)
 
 test_that('matrix heatmap', {
-  expect_known_value(tree_plot, 'test_default_tree_plot.rds')
+  expect_known_value(tree_plot_cat, 'test_default_tree_plot.rds')
+  expect_known_value(tree_plot, 'test_non_cat_tree_plot.rds')
 })
