@@ -27,13 +27,20 @@ cbf_palette <- function(palette_size = 8, named = FALSE) {
     'sky_blue' = rgb(0.35, 0.7, 0.9),
     'purple' = rgb(0.8, 0.6, 0.7),
     'black' = rgb(0, 0, 0),
-    'orange' = rgb(0.9, 0.6, 0)
+    'orange' = rgb(0.9, 0.6, 0),
+    'grey20' = "#333333",
+    'grey60' = "#999999"
   )
   if (palette_size > 8) {
-    warning("A palette longer than 8 was requested. 8 colours have been returned")
-    palette <- colour_blind_palette
+    if (palette_size > 10) {
+      warning("A palette longer than 10 was requested. 10 colours (including greys) have been returned")
+      palette <- colour_blind_palette
+    } else {
+      warning("A palette longer than 8 was requested. A palette including greys has been returned")
+      palette <- colour_blind_palette[seq_len(palette_size)]
+    }
   } else if (palette_size < 1) {
-    warning("8 colours have been returned")
+    warning("A palette size of less than one was requested. 8 colours have been returned")
     palette <- colour_blind_palette
   } else {
     palette <- colour_blind_palette[seq_len(palette_size)]

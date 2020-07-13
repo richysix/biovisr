@@ -14,9 +14,12 @@ colour_blind_palette <- c(
 )
 
 test_that('palette size greater than 8', {
+  expect_warning(cbf_palette(12),
+                 regexp = "A palette longer than 10 was requested",
+                 label = 'palette size too big warning - 12')
   expect_warning(cbf_palette(10),
-                 regexp = "A palette longer than 8 was requested. 8 colours have been returned",
-                 label = 'palette size too big warning')
+                 regexp = "A palette longer than 8 was requested. A palette including greys has been returned",
+                 label = 'palette size too big warning - 10')
   expect_warning(cbf_palette(-2),
                  regexp = "8 colours have been returned",
                  label = 'palette size too small warning')
@@ -26,4 +29,3 @@ test_that('named or unnamed', {
   expect_identical(cbf_palette(4, named = TRUE), colour_blind_palette[1:4])
   expect_equal(cbf_palette(4, named = TRUE), colour_blind_palette[1:4])
 })
-
