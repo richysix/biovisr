@@ -28,8 +28,8 @@ cbf_palette <- function(palette_size = 8, named = FALSE) {
     'purple' = rgb(0.8, 0.6, 0.7),
     'black' = rgb(0, 0, 0),
     'orange' = rgb(0.9, 0.6, 0),
-    'grey20' = "#333333",
-    'grey60' = "#999999"
+    'grey60' = "#999999",
+    'grey20' = "#333333"
   )
   if (palette_size > 8) {
     if (palette_size > 10) {
