@@ -72,10 +72,10 @@ scatterplot_with_fill_and_shape <- function(plot_data, x_var, y_var,
     if (length(point_labels) == 1) {
       if (point_labels %in% colnames(plot_data)) {
         plot <- plot +
-          ggplot2::geom_text(
+          ggrepel::geom_text_repel(
             ggplot2::aes_(label = as.name(point_labels)),
-            hjust = 0, vjust = 0,
-            nudge_x = 0.5, nudge_y = 0.5,
+#            hjust = 0, vjust = 0,
+#            nudge_x = 0.5, nudge_y = 0.5,
             size=4, show.legend=FALSE)
       } else {
         stop(paste0('The supplied column for point_labels (', point_labels,
@@ -87,10 +87,10 @@ scatterplot_with_fill_and_shape <- function(plot_data, x_var, y_var,
         plot_data <- cbind(plot_data,
                            'point_labels' = point_labels)
         plot <- plot +
-          ggplot2::geom_text(
+          ggrepel::geom_text_repel(
             ggplot2::aes_string(label = 'point_labels'),
-            hjust = 0, vjust = 0,
-            nudge_x = 0.5, nudge_y = 0.5,
+            # hjust = 0, vjust = 0,
+            # nudge_x = 0.5, nudge_y = 0.5,
             size=4, show.legend=FALSE)
       } else {
         stop(paste('Length of point_labels does not match the data.\n',
