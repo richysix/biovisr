@@ -2,6 +2,7 @@
 #'
 #' \code{cbf_palette} returns a colour friendly palette
 #'
+#' These colours come from https://jfly.uni-koeln.de/color
 #' Returns a vector of the specified length. If the supplied length is
 #' greater than 8, a warning is generated and a vector of length 8 is returned.
 #' If no length is supplied the whole palette of 8 colours is returned.
