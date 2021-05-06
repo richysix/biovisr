@@ -13,6 +13,8 @@
 #' @param fill          character   Name of the variable to use for the fill colour
 #' @param fill_palette  character   Name of the fill palette to use.
 #' Must be one of 'viridis', 'plasma', 'magma', 'inferno', 'cividis'
+#' @param colour        character  fixed value for the border colour of the heatmap tiles
+#' @param size          integer  fixed value for the line width of the heatmap tiles border
 #' @param xaxis_labels  logical/character   default=TRUE, FALSE means labels are not printed
 #' if the value is a character vector of the same length as the levels of the x variable
 #' these values are used instead
