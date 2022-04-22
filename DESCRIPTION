@@ -17,5 +17,7 @@ Imports:
     ggrepel,
     tibble,
     tidyr,
-    rlang
+    rlang,
+    viridis
 RoxygenNote: 7.0.2
+Config/testthat/edition: 3
