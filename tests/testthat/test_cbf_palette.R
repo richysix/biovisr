@@ -1,5 +1,3 @@
-context('cbf_palette')
-
 library(biovisr)
 
 colour_blind_palette <- c(
@@ -10,7 +8,9 @@ colour_blind_palette <- c(
   'sky_blue' = rgb(0.35, 0.7, 0.9),
   'purple' = rgb(0.8, 0.6, 0.7),
   'black' = rgb(0, 0, 0),
-  'orange' = rgb(0.9, 0.6, 0)
+  'orange' = rgb(0.9, 0.6, 0),
+  'grey60' = "#CCCCCC",
+  'grey20' = "#666666"
 )
 
 test_that('palette size greater than 8', {
@@ -21,11 +21,24 @@ test_that('palette size greater than 8', {
                  regexp = "A palette longer than 8 was requested. A palette including greys has been returned",
                  label = 'palette size too big warning - 10')
   expect_warning(cbf_palette(-2),
-                 regexp = "8 colours have been returned",
+                 regexp = "A palette size of less than one was requested. 8 colours have been returned",
                  label = 'palette size too small warning')
 })
 
 test_that('named or unnamed', {
   expect_identical(cbf_palette(4, named = TRUE), colour_blind_palette[1:4])
-  expect_equal(cbf_palette(4, named = TRUE), colour_blind_palette[1:4])
+  expect_identical(cbf_palette(4, named = FALSE), unname(colour_blind_palette[1:4]))
 })
+
+# TO DO
+set.seed(34)
+fct <- factor(letters[1:6], levels = sample(letters[1:6]))
+named_palette <- colour_blind_palette[seq_len(length(fct))]
+names(named_palette) <- levels(fct)
+test_that('using character vector of levels', {
+  expect_identical(cbf_palette(levels(fct), named = FALSE), unname(colour_blind_palette[seq_len(length(fct))]))
+  expect_identical(cbf_palette(fct, named = FALSE), unname(colour_blind_palette[seq_len(length(fct))]))
+  expect_identical(cbf_palette(levels(fct), named = TRUE), named_palette)
+  expect_identical(cbf_palette(fct, named = TRUE), named_palette)
+})
+
