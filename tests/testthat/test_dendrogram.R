@@ -1,5 +1,6 @@
 library(biovisr)
 library(miscr)
+library(vdiffr)
 
 set.seed(456)
 test_matrix <-
@@ -19,7 +20,7 @@ tree_plot_cat <- dendro_plot(cluster_res$clustering)
 tree_plot <- dendro_plot(cluster_res$clustering,
                          categorical_scale = FALSE)
 
-test_that('matrix heatmap', {
-  expect_known_value(tree_plot_cat, 'test_default_tree_plot.rds')
-  expect_known_value(tree_plot, 'test_non_cat_tree_plot.rds')
+test_that('dendrogram', {
+  expect_doppelganger("test default tree plot", tree_plot_cat)
+  expect_doppelganger("test non categorical tree plot", tree_plot)
 })

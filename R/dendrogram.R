@@ -20,8 +20,10 @@ dendro_plot <- function(hclust_obj, categorical_scale = TRUE, ...) {
   tree_plot_data <- ggdendro::dendro_data(hclust_obj)
 
   if ( categorical_scale ) {
+    label_data <- ggdendro::label(tree_plot_data) %>%
+      dplyr::mutate(label = factor(label, levels = label))
     dendro_plot <- ggplot2::ggplot() +
-      ggplot2::geom_text(data = ggdendro::label(tree_plot_data),
+      ggplot2::geom_text(data = label_data,
                 ggplot2::aes(x = label, y = y, label = label),
                 angle = 90, hjust = 1, colour = NA)
   } else {

@@ -4,10 +4,14 @@
 \alias{dendro_plot}
 \title{Create dendrogram from a clustering object}
 \usage{
-dendro_plot(hclust_obj, ...)
+dendro_plot(hclust_obj, categorical_scale = TRUE, ...)
 }
 \arguments{
 \item{hclust_obj}{hclust  tree to plot}
+
+\item{categorical_scale}{logical whether the x axis should be categorical or not
+This affects the space around the axes and whether the tree plot will line up with
+other plots with categorical axes}
 }
 \value{
 plot - ggplot2 object
@@ -16,7 +20,7 @@ plot - ggplot2 object
 \code{dendro_plot} produces a ggplot dendrogram from an hclust object
 }
 \details{
-This function takes an hclust object and use ggdendro to produce
+This function takes an hclust object and uses ggdendro to produce
 a ggplot dendrogram.
 }
 \examples{
