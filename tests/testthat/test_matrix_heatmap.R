@@ -1,5 +1,5 @@
-context('Heatmap')
 library(biovisr)
+library(vdiffr)
 
 set.seed(20962)
 test_data <- data.frame(
@@ -44,25 +44,25 @@ df_heatmap_plot_palette_distiller <-
              fill_palette = 'OrRd' )
 
 test_that('data.frame heatmap', {
-  expect_known_value(df_heatmap_plot, 'test_df_heatmap_plot.rds')
-  expect_known_value(df_heatmap_plot_no_labels, 'test_df_heatmap_plot_no_labels.rds')
-  expect_known_value(df_heatmap_plot_diff_labels, 'test_df_heatmap_plot_diff_labels.rds')
+  expect_doppelganger("test df heatmap plot", df_heatmap_plot)
+  expect_doppelganger("test df heatmap plot no labels", df_heatmap_plot_no_labels)
+  expect_doppelganger("test df heatmap plot change labels", df_heatmap_plot_diff_labels)
 })
 
 test_that('data.frame heatmap palettes', {
-  expect_known_value(df_heatmap_plot_palette_null, 'test_df_heatmap_plot_palette_null.rds')
-  expect_known_value(df_heatmap_plot_palette_viridis, 'test_df_heatmap_plot_palette_viridis.rds')
-  expect_known_value(df_heatmap_plot_palette_brewer, 'test_df_heatmap_plot_palette_brewer.rds')
+  expect_doppelganger("test df heatmap plot NULL fill palette", df_heatmap_plot_palette_null)
+  expect_doppelganger("test df heatmap plot viridis fill palette", df_heatmap_plot_palette_viridis)
+  expect_doppelganger("test df heatmap plot brewer fill palette", df_heatmap_plot_palette_brewer)
   # cat data non brewer, non viridis fill palette
   expect_warning(df_heatmap(test_data, x = "cols", y = "rows", fill = "cat", fill_palette = "cheese"),
                  regexp = "Unknown palette")
-  expect_known_value(df_heatmap_plot_palette_manual, 'test_df_heatmap_plot_palette_manual.rds')
-  expect_known_value(df_heatmap_plot_palette_viridis_c, 'test_df_heatmap_plot_palette_viridis_c.rds')
-  expect_known_value(df_heatmap_plot_palette_distiller, 'test_df_heatmap_plot_palette_distiller.rds')
+  expect_doppelganger("test df heatmap plot manual fill palette", df_heatmap_plot_palette_manual)
+  expect_doppelganger("test df heatmap plot viridis continuous fill palette", df_heatmap_plot_palette_viridis_c)
+  expect_doppelganger("test df heatmap plot brewer distiller fill palette", df_heatmap_plot_palette_distiller)
 })
 
 test_that('data.frame heatmap palettes', {
-  expect_known_value(df_heatmap_plot_colour_size, 'test_df_heatmap_plot_colour_size.rds')
+  expect_doppelganger("test df heatmap box colour and size", df_heatmap_plot_colour_size)
 })
 
 set.seed(1638)
@@ -85,8 +85,8 @@ matrix_heatmap_labels <- matrix_heatmap(test_matrix, x_title = "Sample", y = "Sa
 matrix_heatmap_no_labels <- matrix_heatmap(test_matrix, xaxis_labels = FALSE, yaxis_labels = FALSE)
 
 test_that('matrix heatmap', {
-  expect_known_value(default_matrix_heatmap, 'test_matrix_heatmap_plot.rds')
-  expect_known_value(matrix_heatmap_titles, 'test_matrix_heatmap_titles.rds')
-  expect_known_value(matrix_heatmap_labels, 'test_matrix_heatmap_labels.rds')
-  expect_known_value(matrix_heatmap_no_labels, 'test_matrix_heatmap_no_labels.rds')
+  expect_doppelganger("test matrix heatmap default", default_matrix_heatmap)
+  expect_doppelganger("test matrix heatmap titles", matrix_heatmap_titles)
+  expect_doppelganger("test matrix heatmap labels", matrix_heatmap_labels)
+  expect_doppelganger("test matrix heatmap no labels", matrix_heatmap_no_labels)
 })
