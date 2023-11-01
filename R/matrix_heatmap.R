@@ -78,21 +78,25 @@ df_heatmap <- function(plot_df, x, y, fill, fill_palette = "plasma",
     if (is.null(fill_palette)) {
       heatmap_plot <- heatmap_plot +
         ggplot2::scale_fill_manual(values = biovisr::cbf_palette(nlevels(plot_df[[fill]])),
-                                   na.translate = na.translate)
+                                   na.translate = na.translate,
+                                   na.value = 'grey90')
     } else if (length(fill_palette) == 1) {
       if (fill_palette %in% c('viridis', 'plasma', 'magma', 'inferno', 'cividis')) {
         heatmap_plot <- heatmap_plot +
           ggplot2::scale_fill_viridis_d(option = fill_palette,
-                                        na.translate = na.translate)
+                                        na.translate = na.translate,
+                                        na.value = 'grey90')
       } else {
         heatmap_plot <- heatmap_plot +
           ggplot2::scale_fill_brewer(palette = fill_palette,
-                                     na.translate = na.translate)
+                                     na.translate = na.translate,
+                                     na.value = 'grey90')
       }
     } else if (length(fill_palette) == nlevels(plot_df[[fill]])) {
       heatmap_plot <- heatmap_plot +
         ggplot2::scale_fill_manual(values = fill_palette,
-                                   na.translate = na.translate)
+                                   na.translate = na.translate,
+                                   na.value = 'grey90')
     }
   } else {
     if (length(fill_palette) == 1) {
