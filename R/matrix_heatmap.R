@@ -67,7 +67,7 @@ df_heatmap <- function(plot_df, x, y, fill, fill_palette = "plasma",
     } else {
       heatmap_plot <- ggplot2::ggplot(data = plot_df) +
         ggplot2::geom_tile( ggplot2::aes(x = !!xvar, y = !!yvar, fill = !!fillvar ),
-                            colour = colour, size = size )
+                            colour = colour, linewidth = size )
     }
   }
 
@@ -108,15 +108,35 @@ df_heatmap <- function(plot_df, x, y, fill, fill_palette = "plasma",
     }
   }
 
-  if (class(xaxis_labels) == "character" && length(xaxis_labels) == nlevels(plot_df[[x]])) {
-    heatmap_plot <- heatmap_plot +
-      ggplot2::scale_x_discrete(labels = xaxis_labels)
-    xaxis_labels <- TRUE
+  if (class(xaxis_labels) == "character"){
+    if (length(xaxis_labels) == nlevels(plot_df[[x]])) {
+      heatmap_plot <- heatmap_plot +
+        ggplot2::scale_x_discrete(labels = xaxis_labels)
+      xaxis_labels <- TRUE
+    } else {
+      var <- 'x'
+      label_error_msg <- glue::glue(
+        "Supplied {var}-axis labels are the wrong length.\n",
+        "`{var}axis_labels` argument must be either TRUE or FALSE or ",
+        "a character vector the same length as the number of unique values ",
+        "of the {var} variable")
+      rlang::abort(message = label_error_msg)
+    }
   }
-  if (class(yaxis_labels) == "character" && length(yaxis_labels) == nlevels(plot_df[[y]])) {
-    heatmap_plot <- heatmap_plot +
-      ggplot2::scale_y_discrete(labels = yaxis_labels)
-    yaxis_labels <- TRUE
+  if (class(yaxis_labels) == "character") {
+    if (length(yaxis_labels) == nlevels(plot_df[[y]])) {
+      heatmap_plot <- heatmap_plot +
+        ggplot2::scale_y_discrete(labels = yaxis_labels)
+      yaxis_labels <- TRUE
+    } else {
+      var <- 'y'
+      label_error_msg <- glue::glue(
+        "Supplied {var}-axis labels are the wrong length.\n",
+        "`{var}axis_labels` argument must be either TRUE or FALSE or ",
+        "a character vector the same length as the number of unique values ",
+        "of the {var} variable")
+      rlang::abort(message = label_error_msg)
+    }
   }
 
   heatmap_plot <- heatmap_plot +
