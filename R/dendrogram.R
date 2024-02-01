@@ -14,9 +14,10 @@
 #'
 #' @examples
 #'
+#' dendro_plot(cluster_res$clustering)
 #'
 #' @export
-dendro_plot <- function(hclust_obj, categorical_scale = TRUE, ...) {
+dendro_plot <- function(hclust_obj, categorical_scale = TRUE) {
   tree_plot_data <- ggdendro::dendro_data(hclust_obj)
 
   if ( categorical_scale ) {
@@ -32,7 +33,7 @@ dendro_plot <- function(hclust_obj, categorical_scale = TRUE, ...) {
 
   dendro_plot <- dendro_plot +
     ggplot2::geom_segment(data = ggdendro::segment(tree_plot_data),
-                          size = 0.3, lineend = 'square',
+                          linewidth = 0.3, lineend = 'square',
                           ggplot2::aes(x = x, y = y, xend = xend, yend = yend)) +
     ggplot2::theme_void()
 

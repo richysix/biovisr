@@ -13,6 +13,7 @@ scatterplot_with_fill_and_shape(
   shape_var = "None",
   shape_palette,
   point_labels = NULL,
+  label_seed = NA,
   point_size = 4,
   ...
 )
@@ -30,10 +31,14 @@ scatterplot_with_fill_and_shape(
 
 \item{shape_var}{character - name of the column to use as the shape aesthetic}
 
-\item{shape_palette}{character - a named character vectors of colours for the shape aesthetic}
+\item{shape_palette}{character - a named character vectors of shapes for the shape aesthetic}
 
 \item{point_labels}{character - labels for the points. Either a column name
 from the plot_data or a character vector. Default: NULL - no labels}
+
+\item{point_size}{numeric - size of points}
+
+\item{labels_seed}{integer - seed for geom_text_repel}
 }
 \value{
 ggplot2 object

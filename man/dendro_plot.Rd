@@ -4,7 +4,7 @@
 \alias{dendro_plot}
 \title{Create dendrogram from a clustering object}
 \usage{
-dendro_plot(hclust_obj, categorical_scale = TRUE, ...)
+dendro_plot(hclust_obj, categorical_scale = TRUE)
 }
 \arguments{
 \item{hclust_obj}{hclust  tree to plot}
@@ -25,5 +25,6 @@ a ggplot dendrogram.
 }
 \examples{
 
+dendro_plot(cluster_res$clustering)
 
 }

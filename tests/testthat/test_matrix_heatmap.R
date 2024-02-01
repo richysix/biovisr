@@ -43,6 +43,13 @@ df_heatmap_plot_palette_distiller <-
   df_heatmap(test_data, x = "cols", y = "rows", fill = "fill",
              fill_palette = 'OrRd' )
 
+test_that('df_heatmap: axis labels wrong length errors', {
+  expect_error(df_heatmap(test_data, x = "cols", y = "rows", fill = "fill", xaxis_labels = letters[1:11]),
+               regexp = "x-axis labels are the wrong length")
+  expect_error(df_heatmap(test_data, x = "cols", y = "rows", fill = "fill", yaxis_labels = letters[1:11]),
+               regexp = "y-axis labels are the wrong length")
+})
+
 test_that('data.frame heatmap', {
   expect_doppelganger("test df heatmap plot", df_heatmap_plot)
   expect_doppelganger("test df heatmap plot no labels", df_heatmap_plot_no_labels)
@@ -89,4 +96,11 @@ test_that('matrix heatmap', {
   expect_doppelganger("test matrix heatmap titles", matrix_heatmap_titles)
   expect_doppelganger("test matrix heatmap labels", matrix_heatmap_labels)
   expect_doppelganger("test matrix heatmap no labels", matrix_heatmap_no_labels)
+})
+
+test_that('matrix_heatmap: axis labels wrong length errors', {
+  expect_error(matrix_heatmap(test_matrix, xaxis_labels = LETTERS[1:5]),
+               regexp = "x-axis labels are the wrong length")
+  expect_error(matrix_heatmap(test_matrix, yaxis_labels = LETTERS[1:5]),
+               regexp = "y-axis labels are the wrong length")
 })

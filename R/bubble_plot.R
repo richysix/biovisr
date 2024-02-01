@@ -16,6 +16,7 @@
 #'   x-axis variable
 #' @param y_labels  character   Optional labels to use instead of levels of
 #'   y-axis variable
+#' @param ...           Other arguments passed on to \code{\link[ggplot2]{geom_point}}
 #'
 #' @return plot - ggplot2 object
 #'
@@ -39,7 +40,10 @@
 bubble_plot <- function(plot_df, x = 'x', y = 'y', size = 'size',
                         fill = 'fill', x_labels = NULL,
                         y_labels = NULL, ... ){
-
+  x_var <- rlang::sym(x)
+  y_var <- rlang::sym(y)
+  size_var <- rlang::sym(size)
+  fill_var <- rlang::sym(fill)
   # check labels is the same length as the levels of the x/y column
   if (!is.null(x_labels)) {
     if (length(x_labels) != nlevels(plot_df[[x]])) {
@@ -61,8 +65,8 @@ bubble_plot <- function(plot_df, x = 'x', y = 'y', size = 'size',
                               TRUE, FALSE)
   # create theme
   bubble_plot <- ggplot2::ggplot(data = plot_df) +
-    ggplot2::geom_point(ggplot2::aes_(x = as.name(x), y = as.name(y), size = as.name(size),
-                    fill = as.name(fill)), shape = 21, ... ) +
+    ggplot2::geom_point(ggplot2::aes(x = !!x_var, y = !!y_var, size = !!size_var,
+                    fill = !!fill_var), shape = 21, ... ) +
     viridis::scale_fill_viridis(direction = -1) +
     theme_bubble(base_size = 12, categorical = (x_is_categorical | y_is_categorical) )
 

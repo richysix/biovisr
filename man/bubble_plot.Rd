@@ -32,6 +32,8 @@ x-axis variable}
 
 \item{y_labels}{character   Optional labels to use instead of levels of
 y-axis variable}
+
+\item{...}{Other arguments passed on to \code{\link[ggplot2]{geom_point}}}
 }
 \value{
 plot - ggplot2 object

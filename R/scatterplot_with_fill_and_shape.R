@@ -12,9 +12,11 @@
 #' @param fill_var character - name of the column to use as the fill aesthetic
 #' @param fill_palette character - a named character vectors of colours for the fill aesthetic
 #' @param shape_var character - name of the column to use as the shape aesthetic
-#' @param shape_palette character - a named character vectors of colours for the shape aesthetic
+#' @param shape_palette character - a named character vectors of shapes for the shape aesthetic
 #' @param point_labels character - labels for the points. Either a column name
 #' from the plot_data or a character vector. Default: NULL - no labels
+#' @param labels_seed integer - seed for geom_text_repel
+#' @param point_size numeric - size of points
 #'
 #' @return ggplot2 object
 #'
@@ -27,20 +29,24 @@
 scatterplot_with_fill_and_shape <- function(plot_data, x_var, y_var,
                                         fill_var, fill_palette,
                                         shape_var = 'None', shape_palette,
-                                        point_labels = NULL,
+                                        point_labels = NULL, label_seed = NA,
                                         point_size = 4, ...) {
+  x_var <- rlang::sym(x_var)
+  y_var <- rlang::sym(y_var)
   plot <- ggplot2::ggplot(data = plot_data,
-                          ggplot2::aes_(x = as.name(x_var), y = as.name(y_var)))
+                          ggplot2::aes(x = !!x_var, y = !!y_var))
 
+  fill_var <- rlang::sym(fill_var)
+  shape_var <- rlang::sym(shape_var)
   if (shape_var == 'None') {
     plot <- plot +
-      ggplot2::geom_point(ggplot2::aes_(fill = as.name(fill_var)),
+      ggplot2::geom_point(ggplot2::aes(fill = !!fill_var),
                  size = point_size, shape = 21,
                  colour = 'black')
   } else {
     plot <- plot +
-      ggplot2::geom_point(ggplot2::aes_(fill = as.name(fill_var),
-                                        shape = as.name(shape_var)),
+      ggplot2::geom_point(ggplot2::aes(fill = !!fill_var,
+                                        shape = !!shape_var),
                                         size = point_size,
                                         colour = 'black') +
       ggplot2::scale_shape_manual(values = shape_palette,
@@ -73,9 +79,8 @@ scatterplot_with_fill_and_shape <- function(plot_data, x_var, y_var,
       if (point_labels %in% colnames(plot_data)) {
         plot <- plot +
           ggrepel::geom_text_repel(
-            ggplot2::aes_(label = as.name(point_labels)),
-#            hjust = 0, vjust = 0,
-#            nudge_x = 0.5, nudge_y = 0.5,
+            ggplot2::aes(label = !!rlang::sym(point_labels)),
+            seed = label_seed,
             size=4, show.legend=FALSE)
       } else {
         stop(paste0('The supplied column for point_labels (', point_labels,
@@ -88,9 +93,8 @@ scatterplot_with_fill_and_shape <- function(plot_data, x_var, y_var,
                            'point_labels' = point_labels)
         plot <- plot +
           ggrepel::geom_text_repel(
-            ggplot2::aes_string(label = 'point_labels'),
-            # hjust = 0, vjust = 0,
-            # nudge_x = 0.5, nudge_y = 0.5,
+            ggplot2::aes(label = point_labels),
+            seed = label_seed,
             size=4, show.legend=FALSE)
       } else {
         stop(paste('Length of point_labels does not match the data.\n',

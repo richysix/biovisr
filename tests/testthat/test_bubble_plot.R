@@ -21,7 +21,7 @@ test_data_cat$y <- factor(test_data_cat$y, levels = 10:1)
 #cat('got here 2\n')
 cat_bubble_plot_rev <- bubble_plot(test_data_cat)
 
-cat('got here 3\n')
+#cat('got here 3\n')
 test_that('categorical plot', {
   expect_doppelganger("categorical bubble plot", cat_bubble_plot)
 })

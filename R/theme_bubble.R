@@ -11,6 +11,7 @@
 #' @param base_size      numeric    base size of text in points (default: 11)
 #' @param base_family    character  base font family (default: "")
 #' @param categorical    logical    are either of the x and y variable categorical (default: TRUE)
+#' @param ...           Other arguments passed on to \code{\link[ggplot2]{theme_void}}
 #'
 #' @return ggplot theme object
 #'

@@ -12,6 +12,8 @@ theme_bubble(base_size = 11, base_family = "", categorical = TRUE, ...)
 \item{base_family}{character  base font family (default: "")}
 
 \item{categorical}{logical    are either of the x and y variable categorical (default: TRUE)}
+
+\item{...}{Other arguments passed on to \code{\link[ggplot2]{theme_void}}}
 }
 \value{
 ggplot theme object

@@ -16,13 +16,14 @@ test_PCA_plot <-
   scatterplot_with_fill_and_shape(test_data, x_var = 'PC1', y_var = 'PC2',
                                   fill_var = 'stage', fill_palette = c('orange', 'steelblue3', 'hotpink2', 'black'),
                                   shape_var = 'condition', shape_palette = c('baseline' = 21, 'wt' = 22, 'hom' = 23),
-                                  point_labels = 'sample_name'
+                                  point_labels = 'sample_name', label_seed = 546
   )
 
 test_PCA_plot_no_labels <-
   scatterplot_with_fill_and_shape(test_data, x_var = 'PC1', y_var = 'PC2',
                                   fill_var = 'stage', fill_palette = c('orange', 'steelblue3', 'hotpink2', 'black'),
-                                  shape_var = 'condition', shape_palette = c('baseline' = 21, 'wt' = 22, 'hom' = 23)
+                                  shape_var = 'condition', shape_palette = c('baseline' = 21, 'wt' = 22, 'hom' = 23),
+                                  label_seed = 546
   )
 
 different_labels <- paste0('alt_name_', 1:20)
@@ -30,7 +31,7 @@ test_PCA_plot_diff_labels <-
   scatterplot_with_fill_and_shape(test_data, x_var = 'PC1', y_var = 'PC2',
                                 fill_var = 'stage', fill_palette = c('orange', 'steelblue3', 'hotpink2', 'black'),
                                 shape_var = 'condition', shape_palette = c('baseline' = 21, 'wt' = 22, 'hom' = 23),
-                                point_labels = different_labels)
+                                point_labels = different_labels, label_seed = 546)
 
 test_that('PCA plot', {
   expect_doppelganger("test PCA plot", test_PCA_plot)
