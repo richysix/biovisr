@@ -50,17 +50,17 @@
 <text transform='translate(638.49,561.14) rotate(-90)' text-anchor='end' style='font-size: 9.00px; font-family: sans;' textLength='2.00px' lengthAdjust='spacingAndGlyphs'>j</text>
 <text x='345.46' y='574.86' text-anchor='middle' style='font-size: 11.00px; font-family: sans;' textLength='19.57px' lengthAdjust='spacingAndGlyphs'>cols</text>
 <text transform='translate(8.71,289.22) rotate(-90)' text-anchor='middle' style='font-size: 11.00px; font-family: sans;' textLength='23.23px' lengthAdjust='spacingAndGlyphs'>rows</text>
+<text x='679.72' y='247.07' style='font-size: 11.00px; font-family: sans;' textLength='10.38px' lengthAdjust='spacingAndGlyphs'>fill</text>
 <image width='17.28' height='86.40' x='679.72' y='253.69' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAEsCAYAAAACUNnVAAAA5ElEQVQ4jZ2PS3LEMAhEH1Tuf4qcMmXTWchmhIIyTjaqpn8gDn3KicBNgRMnjgK3iAsx0NlwRf3Blb5HiQfc+VDdojuhgV7cmdyBo+NCGujr4hSOI8clx5lGu1FY4cJStVTtV5XGR/WxURNthbl+Qcz1fQF5M2XbyJa+yDPGw41i5e6WoCaGZVvFwypmS7y46SCaI4tl2tYuyjFv7sYr0Y3kV8lE5aqwxGbO3lbtWt6o/6uKv1sWdRKEywIX+ZjK2HLNaIGzVdvxgSBcKpaxQ51FOCrjikZMeKQQivthQedAwIe+AYY+GH/hjc2DAAAAAElFTkSuQmCC'/>
+<polyline points='693.55,318.16 697.00,318.16 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='693.55,296.18 697.00,296.18 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='693.55,274.20 697.00,274.20 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='683.18,318.16 679.72,318.16 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='683.18,296.18 679.72,296.18 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='683.18,274.20 679.72,274.20 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
 <text x='702.48' y='321.25' style='font-size: 9.00px; font-family: sans;' textLength='17.52px' lengthAdjust='spacingAndGlyphs'>0.25</text>
 <text x='702.48' y='299.27' style='font-size: 9.00px; font-family: sans;' textLength='17.52px' lengthAdjust='spacingAndGlyphs'>0.50</text>
 <text x='702.48' y='277.29' style='font-size: 9.00px; font-family: sans;' textLength='17.52px' lengthAdjust='spacingAndGlyphs'>0.75</text>
-<text x='679.72' y='247.07' style='font-size: 11.00px; font-family: sans;' textLength='10.38px' lengthAdjust='spacingAndGlyphs'>fill</text>
-<line x1='679.72' y1='318.16' x2='683.18' y2='318.16' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='679.72' y1='296.18' x2='683.18' y2='296.18' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='679.72' y1='274.20' x2='683.18' y2='274.20' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='693.55' y1='318.16' x2='697.00' y2='318.16' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='693.55' y1='296.18' x2='697.00' y2='296.18' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='693.55' y1='274.20' x2='697.00' y2='274.20' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
 <text x='16.86' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='201.09px' lengthAdjust='spacingAndGlyphs'>test df heatmap plot change labels</text>
 </g>
 </svg>

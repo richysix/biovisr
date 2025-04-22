@@ -41,7 +41,7 @@ df_heatmap_plot_palette_viridis_c <-
 # continuous data brewer fill palette
 df_heatmap_plot_palette_distiller <-
   df_heatmap(test_data, x = "cols", y = "rows", fill = "fill",
-             fill_palette = 'OrRd' )
+             fill_palette = 'Greens' )
 
 test_that('df_heatmap: axis labels wrong length errors', {
   expect_error(df_heatmap(test_data, x = "cols", y = "rows", fill = "fill", xaxis_labels = letters[1:11]),
@@ -61,8 +61,8 @@ test_that('data.frame heatmap palettes', {
   expect_doppelganger("test df heatmap plot viridis fill palette", df_heatmap_plot_palette_viridis)
   expect_doppelganger("test df heatmap plot brewer fill palette", df_heatmap_plot_palette_brewer)
   # cat data non brewer, non viridis fill palette
-  expect_warning(df_heatmap(test_data, x = "cols", y = "rows", fill = "cat", fill_palette = "cheese"),
-                 regexp = "Unknown palette")
+  expect_error(df_heatmap(test_data, x = "cols", y = "rows", fill = "cat", fill_palette = "cheese"),
+                 regexp = "Could not match palette name")
   expect_doppelganger("test df heatmap plot manual fill palette", df_heatmap_plot_palette_manual)
   expect_doppelganger("test df heatmap plot viridis continuous fill palette", df_heatmap_plot_palette_viridis_c)
   expect_doppelganger("test df heatmap plot brewer distiller fill palette", df_heatmap_plot_palette_distiller)

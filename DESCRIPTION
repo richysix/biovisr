@@ -1,8 +1,8 @@
 Package: biovisr
 Type: Package
 Title: Biological Visualisation Functions
-Version: 0.1.9
-Authors@R: person("Richard", "White", email = "richard.white@sanger.ac.uk",
+Version: 0.2.0
+Authors@R: person("Richard", "White", email = "rich.white@cantab.net",
                   role = c("aut", "cre"))
 Description: This is a collection of functions that I use for visualisations of
   different types of biological data.
@@ -19,7 +19,7 @@ Imports:
     tidyr,
     rlang,
     viridis
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Config/testthat/edition: 3
 Depends: 
     R (>= 2.10)

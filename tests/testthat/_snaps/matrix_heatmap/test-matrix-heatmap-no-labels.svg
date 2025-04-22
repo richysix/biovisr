@@ -30,20 +30,20 @@
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
 <text x='345.71' y='574.86' text-anchor='middle' style='font-size: 11.00px; font-family: sans;' textLength='37.30px' lengthAdjust='spacingAndGlyphs'>Sample</text>
 <text transform='translate(8.71,291.73) rotate(-90)' text-anchor='middle' style='font-size: 11.00px; font-family: sans;' textLength='26.91px' lengthAdjust='spacingAndGlyphs'>Gene</text>
+<text x='687.23' y='249.57' style='font-size: 11.00px; font-family: sans;' textLength='28.14px' lengthAdjust='spacingAndGlyphs'>Value</text>
 <image width='17.28' height='86.40' x='687.23' y='256.19' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAEsCAYAAAACUNnVAAAA4klEQVQ4jY2QS5LDMAhEH9wk97/cbFMV07NwjAWWYu+A/kr8vV9yZLgF7BMCt7DJCk4YbkpyyizRXVHXMaMB1b651FZD2mnV/BKwoV/RNt4lbaIYAMMly8m/BpKtKOdPzgCOKVbA6ta06uHN4HzMb/LSdDLFrUt7grqV4eJqcNFWP4rVk4w1mUc1brRxT1nKoAB9bSW5BXKNJ6bHGvpVI5pilpFAtDS1LmfaQnGu0RSAC+EyHQ1QAeCLxnCrZON6q+SolP1WM8Imzs2v1phRovpFTYuUjWtOBr7lbUP4BvgH8Q/tz8IBGi+44gAAAABJRU5ErkJggg=='/>
+<polyline points='701.05,325.23 704.51,325.23 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='701.05,302.26 704.51,302.26 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='701.05,279.30 704.51,279.30 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='701.05,256.34 704.51,256.34 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='690.68,325.23 687.23,325.23 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='690.68,302.26 687.23,302.26 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='690.68,279.30 687.23,279.30 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='690.68,256.34 687.23,256.34 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
 <text x='709.99' y='328.32' style='font-size: 9.00px; font-family: sans;' textLength='5.01px' lengthAdjust='spacingAndGlyphs'>4</text>
 <text x='709.99' y='305.36' style='font-size: 9.00px; font-family: sans;' textLength='5.01px' lengthAdjust='spacingAndGlyphs'>8</text>
 <text x='709.99' y='282.40' style='font-size: 9.00px; font-family: sans;' textLength='10.01px' lengthAdjust='spacingAndGlyphs'>12</text>
 <text x='709.99' y='259.43' style='font-size: 9.00px; font-family: sans;' textLength='10.01px' lengthAdjust='spacingAndGlyphs'>16</text>
-<text x='687.23' y='249.57' style='font-size: 11.00px; font-family: sans;' textLength='28.14px' lengthAdjust='spacingAndGlyphs'>Value</text>
-<line x1='687.23' y1='325.23' x2='690.68' y2='325.23' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='687.23' y1='302.26' x2='690.68' y2='302.26' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='687.23' y1='279.30' x2='690.68' y2='279.30' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='687.23' y1='256.34' x2='690.68' y2='256.34' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='701.05' y1='325.23' x2='704.51' y2='325.23' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='701.05' y1='302.26' x2='704.51' y2='302.26' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='701.05' y1='279.30' x2='704.51' y2='279.30' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='701.05' y1='256.34' x2='704.51' y2='256.34' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
 <text x='9.85' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='172.44px' lengthAdjust='spacingAndGlyphs'>test matrix heatmap no labels</text>
 </g>
 </svg>

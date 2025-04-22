@@ -12,6 +12,9 @@ matrix_heatmap(
   fill_palette = "plasma",
   xaxis_labels = TRUE,
   yaxis_labels = TRUE,
+  colour = NULL,
+  size = NULL,
+  na.translate = TRUE,
   ...
 )
 }
@@ -23,7 +26,7 @@ matrix_heatmap(
 \item{fill_title}{character   Name for the legend}
 
 \item{fill_palette}{character   Name of the fill palette to use.
-Must be one of 'viridis', 'plasma', 'magma', 'inferno', 'cividis'}
+Must be one of the viridis or color brewer palettes}
 
 \item{xaxis_labels}{logical/character   default=TRUE, FALSE means labels are not printed
 if the value is a character vector of the same length as the levels of the x variable
@@ -32,6 +35,12 @@ these values are used instead}
 \item{yaxis_labels}{logical/character   default=TRUE, FALSE means labels are not printed
 if the value is a character vector of the same length as the levels of the y variable
 these values are used instead}
+
+\item{colour}{character  fixed value for the border colour of the heatmap tiles}
+
+\item{size}{integer  fixed value for the line width of the heatmap tiles border}
+
+\item{na.translate}{logical  whether to include NA values in the legend for categorical fill variables}
 
 \item{...}{Other arguments passed on to \code{\link{theme_heatmap()}}}
 

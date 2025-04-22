@@ -167,17 +167,17 @@
 <text x='0.00' y='218.44' style='font-size: 12.00px; font-family: sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>8</text>
 <text x='0.00' y='170.85' style='font-size: 12.00px; font-family: sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>9</text>
 <text x='0.00' y='123.26' style='font-size: 12.00px; font-family: sans;' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text x='252.32' y='39.11' style='font-size: 12.00px; font-family: sans;' textLength='11.33px' lengthAdjust='spacingAndGlyphs'>fill</text>
 <image width='86.40' height='17.28' x='269.62' y='18.88' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAABCAYAAABkOJMpAAAA7ElEQVQ4jXWT2Y3FIAxFD+ll+i9rqsD3feANSCIhL3exE5Ex//9kGCZhGIbWkSpHTAkDP2Iq8rGiYDJWrRV7PRmYHoxnYc6p2rHg8jg/uI/7fvRyZuWm8khN4yvngulBuedAOQumY+F75fHOqSP9ox+YDkwqP4HXpPfCgMRCVzWQWlQeZM9rFQd67lFA+LV6HFhxD9yfEdzWH02z4Q27OPF8YW/9F+zqv2jf9vj20+ceW/QPmT07Z+nQ6d7Dzlm698gL0nGVns5fP+6oC7L34tBnt76dOoGsajVMArO6TLYwyVy387R5Os/rhRk/vW6TqcXy+t4AAAAASUVORK5CYII='/>
+<polyline points='291.28,32.70 291.28,36.16 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='313.64,32.70 313.64,36.16 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='336.01,32.70 336.01,36.16 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='291.28,22.33 291.28,18.88 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='313.64,22.33 313.64,18.88 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
+<polyline points='336.01,22.33 336.01,18.88 ' style='stroke-width: 0.38; stroke: #FFFFFF;' />
 <text x='291.28' y='49.02' text-anchor='middle' style='font-size: 10.00px; font-family: sans;' textLength='19.46px' lengthAdjust='spacingAndGlyphs'>0.25</text>
 <text x='313.64' y='49.02' text-anchor='middle' style='font-size: 10.00px; font-family: sans;' textLength='19.46px' lengthAdjust='spacingAndGlyphs'>0.50</text>
 <text x='336.01' y='49.02' text-anchor='middle' style='font-size: 10.00px; font-family: sans;' textLength='19.46px' lengthAdjust='spacingAndGlyphs'>0.75</text>
-<text x='252.32' y='39.11' style='font-size: 12.00px; font-family: sans;' textLength='11.33px' lengthAdjust='spacingAndGlyphs'>fill</text>
-<line x1='291.28' y1='36.16' x2='291.28' y2='32.70' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='313.64' y1='36.16' x2='313.64' y2='32.70' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='336.01' y1='36.16' x2='336.01' y2='32.70' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='291.28' y1='22.33' x2='291.28' y2='18.88' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='313.64' y1='22.33' x2='313.64' y2='18.88' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='336.01' y1='22.33' x2='336.01' y2='18.88' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
 <text x='252.32' y='71.06' style='font-size: 12.00px; font-family: sans;' textLength='21.35px' lengthAdjust='spacingAndGlyphs'>size</text>
 <circle cx='288.29' cy='66.93' r='1.42' style='stroke-width: 0.71;' />
 <circle cx='328.65' cy='66.93' r='4.09' style='stroke-width: 0.71;' />

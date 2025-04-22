@@ -51,7 +51,7 @@ df_heatmap <- function(plot_df, x, y, fill, fill_palette = "plasma",
   fillvar <- rlang::sym(fill)
 
   if (is.null(colour)) {
-    if (is.null(size)){
+    if (is.null(size)) {
       heatmap_plot <- ggplot2::ggplot(data = plot_df) +
         ggplot2::geom_raster( ggplot2::aes(x = !!xvar, y = !!yvar, fill = !!fillvar ) )
     } else {
@@ -60,7 +60,7 @@ df_heatmap <- function(plot_df, x, y, fill, fill_palette = "plasma",
                             size = size )
     }
   } else {
-    if (is.null(size)){
+    if (is.null(size)) {
       heatmap_plot <- ggplot2::ggplot(data = plot_df) +
         ggplot2::geom_tile( ggplot2::aes(x = !!xvar, y = !!yvar, fill = !!fillvar ),
                             colour = colour )
@@ -73,7 +73,13 @@ df_heatmap <- function(plot_df, x, y, fill, fill_palette = "plasma",
 
   # sort out fill
   fill_is_categorical <- class(plot_df[[fill]]) %in% c('character', 'factor', 'logical')
-
+  viridis_names <- c('magma', 'inferno', 'plasma', 'viridis', 'cividis',
+                     'rocket', 'mako', 'turbo')
+  brewer_qual <- c("Accent", "Dark2", "Paired", "Pastel1", "Pastel2", "Set1",
+                   "Set2", "Set3")
+  brewer_quant <- c("BrBG", "PiYG", "PRGn", "PuOr", "RdBu", "RdGy", "Blues",
+                    "Greens", "Greys", "Oranges", "Purples", "Reds")
+  illegal_name <- FALSE
   if (fill_is_categorical) {
     if (is.null(fill_palette)) {
       heatmap_plot <- heatmap_plot +
@@ -81,16 +87,18 @@ df_heatmap <- function(plot_df, x, y, fill, fill_palette = "plasma",
                                    na.translate = na.translate,
                                    na.value = 'grey90')
     } else if (length(fill_palette) == 1) {
-      if (fill_palette %in% c('viridis', 'plasma', 'magma', 'inferno', 'cividis')) {
+      if (fill_palette %in% viridis_names) {
         heatmap_plot <- heatmap_plot +
           ggplot2::scale_fill_viridis_d(option = fill_palette,
                                         na.translate = na.translate,
                                         na.value = 'grey90')
-      } else {
+      } else if (fill_palette %in% brewer_qual) {
         heatmap_plot <- heatmap_plot +
           ggplot2::scale_fill_brewer(palette = fill_palette,
                                      na.translate = na.translate,
                                      na.value = 'grey90')
+      } else {
+        illegal_name <- TRUE
       }
     } else if (length(fill_palette) == nlevels(plot_df[[fill]])) {
       heatmap_plot <- heatmap_plot +
@@ -100,15 +108,21 @@ df_heatmap <- function(plot_df, x, y, fill, fill_palette = "plasma",
     }
   } else {
     if (length(fill_palette) == 1) {
-      if (fill_palette %in% c('viridis', 'plasma', 'magma', 'inferno', 'cividis')) {
+      if (fill_palette %in% viridis_names) {
         heatmap_plot <- heatmap_plot + ggplot2::scale_fill_viridis_c(option = fill_palette)
-      } else {
+      } else if (fill_palette %in% brewer_quant) {
         heatmap_plot <- heatmap_plot + ggplot2::scale_fill_distiller(palette = fill_palette)
+      } else {
+        illegal_name <- TRUE
       }
     }
   }
+  if (illegal_name) {
+    stop("Could not match palette name. Must be one of ",
+         paste0(c(viridis_names, brewer_qual, brewer_quant), collapse = ", "))
+  }
 
-  if (class(xaxis_labels) == "character"){
+  if (class(xaxis_labels) == "character") {
     if (length(xaxis_labels) == nlevels(plot_df[[x]])) {
       heatmap_plot <- heatmap_plot +
         ggplot2::scale_x_discrete(labels = xaxis_labels)
@@ -160,13 +174,16 @@ df_heatmap <- function(plot_df, x, y, fill, fill_palette = "plasma",
 #' @param y_title       character   Name for the y-axis
 #' @param fill_title    character   Name for the legend
 #' @param fill_palette  character   Name of the fill palette to use.
-#' Must be one of 'viridis', 'plasma', 'magma', 'inferno', 'cividis'
+#' Must be one of the viridis or color brewer palettes
 #' @param xaxis_labels  logical/character   default=TRUE, FALSE means labels are not printed
 #' if the value is a character vector of the same length as the levels of the x variable
 #' these values are used instead
 #' @param yaxis_labels  logical/character   default=TRUE, FALSE means labels are not printed
 #' if the value is a character vector of the same length as the levels of the y variable
 #' these values are used instead
+#' @param colour        character  fixed value for the border colour of the heatmap tiles
+#' @param size          integer  fixed value for the line width of the heatmap tiles border
+#' @param na.translate  logical  whether to include NA values in the legend for categorical fill variables
 #' @param ...           Other arguments passed on to \code{\link{theme_heatmap()}}
 #'
 #' @return plot - ggplot2 object
@@ -195,7 +212,8 @@ df_heatmap <- function(plot_df, x, y, fill, fill_palette = "plasma",
 #' @export
 matrix_heatmap <- function(data_matrix, x_title = "Sample", y_title = "Gene",
                            fill_title = "Value", fill_palette = "plasma",
-                           xaxis_labels = TRUE, yaxis_labels = TRUE, ...) {
+                           xaxis_labels = TRUE, yaxis_labels = TRUE,
+                           colour = NULL, size = NULL, na.translate = TRUE, ...) {
   # check dimnames of matrix
   if (is.null(dimnames(data_matrix))) {
     dimnames(data_matrix) <-
@@ -231,7 +249,8 @@ matrix_heatmap <- function(data_matrix, x_title = "Sample", y_title = "Gene",
   # plot heatmap
   heatmap <- df_heatmap(matrix_df, x = xcol_name, y = y_title, fill = fill_title,
                         fill_palette = fill_palette, xaxis_labels = xaxis_labels,
-                        yaxis_labels = yaxis_labels, ...)
+                        yaxis_labels = yaxis_labels, colour = colour,
+                        size = size, na.translate = na.translate, ...)
   heatmap <- heatmap + ggplot2::xlab(x_title)
 
   return(heatmap)
