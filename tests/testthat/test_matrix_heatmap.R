@@ -57,19 +57,19 @@ test_that('data.frame heatmap', {
 })
 
 test_that('data.frame heatmap palettes', {
-  expect_doppelganger("test df heatmap plot NULL fill palette", df_heatmap_plot_palette_null)
-  expect_doppelganger("test df heatmap plot viridis fill palette", df_heatmap_plot_palette_viridis)
-  expect_doppelganger("test df heatmap plot brewer fill palette", df_heatmap_plot_palette_brewer)
+  expect_doppelganger("test heatmap NULL fill pal", df_heatmap_plot_palette_null)
+  expect_doppelganger("test heatmap viridis fill pal", df_heatmap_plot_palette_viridis)
+  expect_doppelganger("test heatmap brewer fill pal", df_heatmap_plot_palette_brewer)
   # cat data non brewer, non viridis fill palette
   expect_error(df_heatmap(test_data, x = "cols", y = "rows", fill = "cat", fill_palette = "cheese"),
                  regexp = "Could not match palette name")
-  expect_doppelganger("test df heatmap plot manual fill palette", df_heatmap_plot_palette_manual)
-  expect_doppelganger("test df heatmap plot viridis continuous fill palette", df_heatmap_plot_palette_viridis_c)
-  expect_doppelganger("test df heatmap plot brewer distiller fill palette", df_heatmap_plot_palette_distiller)
+  expect_doppelganger("test heatmap manual fill pal", df_heatmap_plot_palette_manual)
+  expect_doppelganger("test heatmap viridis cont fill pal", df_heatmap_plot_palette_viridis_c)
+  expect_doppelganger("test heatmap brewer dist fill pal", df_heatmap_plot_palette_distiller)
 })
 
 test_that('data.frame heatmap palettes', {
-  expect_doppelganger("test df heatmap box colour and size", df_heatmap_plot_colour_size)
+  expect_doppelganger("test heatmap box colour size", df_heatmap_plot_colour_size)
 })
 
 set.seed(1638)
